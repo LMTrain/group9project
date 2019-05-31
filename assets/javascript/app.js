@@ -1,7 +1,7 @@
 
   // Initial array of items
   var items = ['Backpack', 'ipad', "iPhone",'HP Laptop', 'Helmet', 'Loveseats', 'Coffee Table', 'Futons', 'Book Case', 'Bikes', 'Chess Game', 'Toy Cars', 'Puzzle Board', 'TV Stands'];
-
+  var locations = ['St Paul', 'Minneapolis', 'Roseville', 'Maplewood', 'Andover'];
   // displayitemInfo function re-renders the HTML to display the appropriate content
   function displayitemInfo() {
 
@@ -65,6 +65,21 @@
       $("#buttons-view").append(a);
     }
   }
+  function renderButtons1() {
+
+    
+    $("#buttons-view1").empty();
+
+    // Looping through the array of items
+    for (var i = 0; i < locations.length; i++) {
+      
+      var a = $("<button>");      
+      a.addClass("item-btn");      
+      a.attr("data-name", locations[i]);      
+      a.text(locations[i]);     
+      $("#buttons-view1").append(a);
+    }
+  }
 
   
   $("#add-item").on("click", function(event) {
@@ -81,3 +96,4 @@
   $(document).on("click", ".item-btn", displayitemInfo);
  
   renderButtons();
+  renderButtons1();
