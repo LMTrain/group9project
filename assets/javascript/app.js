@@ -6,7 +6,7 @@
   function displayitemInfo() {
 
     var item = $(this).attr("data-name");
-    var queryURL = "http://api.walmartlabs.com/v1/search?" + "&apiKey=vng9pukufs97mcyyjs5ps266&query=" + item + "&format=json&callback=foo";
+    var queryURL = "assets/javascript/get_response.php?query="+item;
     // var queryURL = "http://api.walmartlabs.com/v1/items/206672856?apiKey=vng9pukufs97mcyyjs5ps266";
     // Creating an AJAX call for the specific item button being clicked
     $.ajax({
@@ -15,9 +15,14 @@
     }).then(function(response) {
 
       // Creating a div to hold the item
-        var results = response.items;
+      console.log(response);
+        var results = JSON.parse(response);
+        var item = results.items[0];
 
-        console.log("Result = " + results);
+        console.log("ItemID = " + JSON.stringify(item.itemId));
+        console.log("Name = " + JSON.stringify(item.name));
+        console.log("salePrice = " + JSON.stringify(item.salePrice));
+        console.log("thumbnailImage = " + JSON.stringify(item.thumbnailImage));
        
         // $("#items-view").empty();
 
