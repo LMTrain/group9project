@@ -16,42 +16,46 @@
 
       // Creating a div to hold the item
       console.log(response);
-        var results = JSON.parse(response);
-        var item = results.items[0];
+        var results = JSON.parse(response).items;
+        // var item = results.items[0];
 
-        console.log("ItemID = " + JSON.stringify(item.itemId));
-        console.log("Name = " + JSON.stringify(item.name));
-        console.log("salePrice = " + JSON.stringify(item.salePrice));
-        console.log("thumbnailImage = " + JSON.stringify(item.thumbnailImage));
+        // console.log("ItemID = " + JSON.stringify(item.itemId));
+        // console.log("Name = " + JSON.stringify(item.name));
+        // console.log("salePrice = " + JSON.stringify(item.salePrice));
+        // console.log("thumbnailImage = " + JSON.stringify(item.thumbnailImage));
        
-        // $("#items-view").empty();
+        $("#items-view").empty();
 
-        // for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
 
             // Creating and storing a div tag
-            // var itemDiv = $("<div class='item'>");                        
-            // var p = $("<p>").text(results[i].salePrice);                      
-            // var image = $("<img>");
-            // image.attr("src", results[i].productUrl); 
-            // image.attr("data-still", results[i].productUrl);
+            var itemDiv = $("<div class='item'>");                        
+            var p = $("<p>").text("$" + results[i].salePrice);  
+            var pN = $("<p>").text(results[i].name);                    
+            var image = $("<img>");
+            var cR = $("<p>").text("Ratings: " + results[i].customerRating);
+            image.attr("src", results[i].thumbnailImage); 
+            image.attr("data-still", results[i].thumbnailImage);
             // image.attr("data-animate", results[i].images.fixed_height_downsampled.url);
-            // image.attr("data-state", "still");
-            // image.on("click", function () {          
+            image.attr("data-state", "still");
+            image.on("click", function () {          
              
-            //   var state = $(this).attr("data-state");
+              // var state = $(this).attr("data-state");
              
-            //   if (state === "still") {
-            //       $(this).attr("src", $(this).attr("data-animate"));
-            //       $(this).attr("data-state", "animate");
-            //   } else {
-            //       $(this).attr("src", $(this).attr("data-still"));
-            //       $(this).attr("data-state", "still");
-            //   }
-            // });              
-        //     itemDiv.append(p);     
-        //     itemDiv.append(image);            
-        //     $("#items-view").prepend(itemDiv);
-        // }      
+              // if (state === "still") {
+              //     $(this).attr("src", $(this).attr("data-animate"));
+              //     $(this).attr("data-state", "animate");
+              // } else {
+              //     $(this).attr("src", $(this).attr("data-still"));
+              //     $(this).attr("data-state", "still");
+              // }
+            });
+            itemDiv.append(pN);              
+            itemDiv.append(p);     
+            itemDiv.append(image);
+            itemDiv.append(cR);            
+            $("#items-view").prepend(itemDiv);
+        }      
     });
   }
   // Function for displaying item data
