@@ -17,12 +17,7 @@
       // Creating a div to hold the item
       console.log(response);
         var results = JSON.parse(response).items;
-        // var item = results.items[0];
-
-        // console.log("ItemID = " + JSON.stringify(item.itemId));
-        // console.log("Name = " + JSON.stringify(item.name));
-        // console.log("salePrice = " + JSON.stringify(item.salePrice));
-        // console.log("thumbnailImage = " + JSON.stringify(item.thumbnailImage));
+        
        
         $("#items-view").empty();
 
@@ -40,15 +35,6 @@
             image.attr("data-state", "still");
             image.on("click", function () {          
              
-              // var state = $(this).attr("data-state");
-             
-              // if (state === "still") {
-              //     $(this).attr("src", $(this).attr("data-animate"));
-              //     $(this).attr("data-state", "animate");
-              // } else {
-              //     $(this).attr("src", $(this).attr("data-still"));
-              //     $(this).attr("data-state", "still");
-              // }
             });
             itemDiv.append(pN);              
             itemDiv.append(p);     
