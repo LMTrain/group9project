@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   
 </head>
 
@@ -20,51 +23,30 @@
       <div class="col-md-12">
         <div class="contents-r1-c1">
           <h3>Traveler Item Price Search</h3>
-          <form id="location-form">
-            <label for="location-input">Your Location</label>
-            <input type="text" id="location-input" placeholder="City, State">              
-           
-            <input id="add-location" type="submit" value="Search">
-          </form>                
-          <div id="buttons-view"></div>
           
-          <!-- <form id="item-form">
-              <label for="item-input">Add an Item</label>
-              <input type="text" id="item-input">              
-             
-              <input id="add-item" type="submit" value="Submit">
-          </form>    -->
-                  
+          <div id="buttons-view"></div>                            
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-          <div class="contents-r2-c1">                
-              <form id="item-form">
-                  <label for="item-input">Add an Item</label>
-                  <input type="text" id="item-input">              
-              
-                  <input id="add-item" type="submit" value="Submit">
-              </form>                
-          </div>
+        <div class="contents-r2-c1">                
+          <form id="item-form">
+              <label for="item-input">Item</label>
+              <input type="text" id="item-input">                 
+          
+              <input id="add-item" type="submit" value="Submit">
+          </form>            
+        </div>
       </div>
-      <div class="col-md-7">
-        <div class="contents-r2-c2">                
-            <table class="table">
-              <thead>
-                  <tr>
-                      <th scope="col">Location (City/State)</th>
-                      <th scope="col">Items</th>                    
-                  </tr>
-              </thead>
-              <tbody>        
-                  <tr>
-                      <td id="locationDisplay">Andover, MN</td>
-                      <td id="itemDisplay"></td>                    
-                  </tr>
-              </tbody>
-            </table>
+      <div class="col-md-6">
+        <div class="contents-r2-c2">
+          <form id="city-form">
+              <label for="city-input">Your Location</label>
+              <input type="text" id="city-input" placeholder="City, State">              
+              
+              <input id="add-city" type="submit" value="Submit">
+          </form>
         </div>
       </div>
 
