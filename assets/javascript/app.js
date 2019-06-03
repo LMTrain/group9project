@@ -1,6 +1,6 @@
 
   // Initial array of items
-  var items = ['Backpack', 'ipad', "iPhone",'HP Laptop', 'Helmet', 'Loveseats', 'Coffee Table', 'Futons', 'Book Case', 'Bikes', 'Chess Game', 'Toy Cars', 'Puzzle Board', 'TV Stands'];
+  var items = ['Adapters', 'Allergy Medicines', 'Bandana', 'Barrettes', 'Belt', 'Blanket', 'Bobby Pins', 'Book', 'Camera', 'Carry-On', 'Charger', 'Comb', 'Deodorant', 'Duffel Bag', 'Ear Plugs', 'Electric Converters', 'E-reader', 'Eye Drops', 'Eye Mask', 'Face lotion with SPF', 'Face Wash', 'First Aid Kit', 'Flash Light', 'Fleece', 'Floss', 'Hair Brush', 'Hair Conditioner', 'Hair Shampoo', 'Hair Ties', 'Hand Sanitizer', 'Hat', 'Insect Repellent', 'iPad', 'Language Guides', 'Laptop', 'Laxative Medicines', 'Lip Balm', 'Maps', 'Moisturizer', 'Moleskin', 'Mouthwash', 'Nail clippers', 'Padlocks', 'Rain Jacket', 'Rolling Luggage', 'Scarf', 'Scissors', 'Shaving Kit', 'Shorts', 'Sleepwear', 'Socks', 'Sun Visor', 'Sunburn Relief', 'Sunglasses', 'Sunscreen', 'Thermometer', 'Toothbrush', 'Toothpaste', 'Travel Backpack', 'Travel Guides', 'Travel Pillow', 'Travel Towel', 'Tweezers', 'Umbrella', 'Underwear', 'Wheeled Backpack', 'Windbreaker'];
 
   // displayitemInfo function re-renders the HTML to display the appropriate content
   function displayitemInfo() {
@@ -76,3 +76,57 @@
   $(document).on("click", ".item-btn", displayitemInfo);
  
   renderButtons();
+
+  var config = {
+    apiKey: "AIzaSyAzNfLsyx0G7i0wRGEVn5vY65NPHSS2q4A",
+    authDomain: "groupproject1-66056.firebaseapp.com",
+    databaseURL: "https://groupproject1-66056.firebaseio.com/",
+    projectId: "groupproject1-66056",
+    storageBucket: "groupproject1-66056.appspot.com",
+    messagingSenderId: "771982143498",
+    appId: "1:771982143498:web:f5ed32150586ee6e"
+};
+firebase.initializeApp(config);
+// puts the firebase into a variable
+var database = firebase.database();
+
+
+// Initial Values
+var location = "";
+var item = "";
+
+$("#add-location").click(function (event) {
+  event.preventDefault();
+
+  var location = $("#location-input").val().trim();
+  var item = $("#item-input").val().trim();
+  
+  var newItem = {
+  location: location,
+  item: item,
+  
+  };
+
+  // Uploads train data to the database
+  database.ref().push(newItem);
+  
+  $("#location-input").val("");
+  $("#item-input").val("");
+  
+});
+
+database.ref().on("child_added", function(childSnapshot) {
+  console.log(childSnapshot.val());
+
+  var location = childSnapshot.val().name;
+  var item = childSnapshot.val().role;
+
+  var newRow = $("<tr>").append(
+    $("<td>").text(location),
+    $("<td>").text(item),
+      
+  );
+
+  // Append the new row to the table
+  $("table > tbody").append(newRow);
+});
