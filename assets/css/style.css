@@ -109,9 +109,10 @@ button:hover{
     cursor:pointer;
 }
 #map {
-    position: absolute;
+    position: relative;
     top: 0; left: 0;
     width: 400px;
     height: 400px;
+    float: down;
     
     }
