@@ -89,21 +89,21 @@
   renderButtons();
   renderCities(); 
 
-  var initMap = function() {
-    var provider = new com.modestmaps.TemplatedLayer('http://tile.openstreetmap.org/{Z}/{X}/{Y}.png');
-    var map = new com.modestmaps.Map('map', provider); 
-    var canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
-    canvas.style.left = '0';
-    canvas.style.top = '0';
-    canvas.width = map.dimensions.x;
-    canvas.height = map.dimensions.y;
-    map.parent.appendChild(canvas);
-    var locations = [];
-    var sf = new com.modestmaps.Location(3.7749295, -122.4194155);
-    var london = new com.modestmaps.Location(51.5001524, -0.1262362);
-  }
-  console.log(initMap);
+  // var initMap = function() {
+  //   var provider = new com.modestmaps.TemplatedLayer('http://tile.openstreetmap.org/{Z}/{X}/{Y}.png');
+  //   var map = new com.modestmaps.Map('map', provider); 
+  //   var canvas = document.createElement('canvas');
+  //   canvas.style.position = 'absolute';
+  //   canvas.style.left = '0';
+  //   canvas.style.top = '0';
+  //   canvas.width = map.dimensions.x;
+  //   canvas.height = map.dimensions.y;
+  //   map.parent.appendChild(canvas);
+  //   var locations = [];
+  //   var sf = new com.modestmaps.Location(3.7749295, -122.4194155);
+  //   var london = new com.modestmaps.Location(51.5001524, -0.1262362);
+  // }
+  // console.log(initMap);
 
   var firebaseConfig = {
     apiKey: "AIzaSyCOWrgjPw8Ov5oER_PXzuHG-MmRPdW9zmQ",
@@ -154,4 +154,17 @@
   // renderCities();
 
   });
-
+  var initMap = function() {
+    var provider = new com.modestmaps.TemplatedLayer('http://tile.openstreetmap.org/{Z}/{X}/{Y}.png');
+    var map = new com.modestmaps.Map('map', provider); 
+    var canvas = document.createElement('canvas');
+    canvas.style.position = 'absolute';
+    canvas.style.left = '0';
+    canvas.style.top = '0';
+    canvas.width = map.dimensions.x;
+    canvas.height = map.dimensions.y;
+    map.parent.appendChild(canvas);
+    var locations = [];
+    var sf = new com.modestmaps.Location(3.7749295, -122.4194155);
+    var london = new com.modestmaps.Location(51.5001524, -0.1262362);
+  }
