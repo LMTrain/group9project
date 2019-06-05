@@ -1,7 +1,7 @@
 
   // Initial array of items
   var items = ['Adapters', 'Allergy Medicines', 'Bandana', 'Barrettes', 'Belt', 'Blanket', 'Bobby Pins', 'Book', 'Camera', 'Carry-On', 'Charger', 'Comb', 'Deodorant', 'Duffel Bag', 'Ear Plugs', 'Electric Converters', 'E-reader', 'Eye Drops', 'Eye Mask', 'Face lotion with SPF', 'Face Wash', 'First Aid Kit', 'Flash Light', 'Fleece', 'Floss', 'Hair Brush', 'Hair Conditioner', 'Hair Shampoo', 'Hair Ties', 'Hand Sanitizer', 'Hat', 'Insect Repellent', 'iPad', 'Language Guides', 'Laptop', 'Laxative Medicines', 'Lip Balm', 'Maps', 'Moisturizer', 'Moleskin', 'Mouthwash', 'Nail clippers', 'Padlocks', 'Rain Jacket', 'Rolling Luggage', 'Scarf', 'Scissors', 'Shaving Kit', 'Shorts', 'Sleepwear', 'Socks', 'Sun Visor', 'Sunburn Relief', 'Sunglasses', 'Sunscreen', 'Thermometer', 'Toothbrush', 'Toothpaste', 'Travel Backpack', 'Travel Guides', 'Travel Pillow', 'Travel Towel', 'Tweezers', 'Umbrella', 'Underwear', 'Wheeled Backpack', 'Windbreaker'];
-  var cities = ['St Paul', 'Minnapolis', "Roseville",'Maplewood', 'Andover', 'Forest Lake'];
+  var cities = ['St Paul', 'Minneapolis', "Roseville",'Maplewood', 'Andover', 'Forest Lake'];
   // displayitemInfo function re-renders the HTML to display the appropriate content
   function displayitemInfo() {
 
@@ -138,7 +138,7 @@
   items.push(item);
   cities.push(city);
   renderButtons();
-  // renderCities();
+  renderCities();
 
   });
   var initMap = function() {
@@ -161,26 +161,5 @@
     }
     map.setExtent(locations);
   
-    // function redraw() {
-    //   var ctx = canvas.getContext('2d');
-    //   ctx.clearRect(0,0,canvas.width,canvas.height);
-    //   ctx.strokeStyle = '#404040';
-    //   ctx.beginPath();
-    //   var p = map.locationPoint(locations[0]);
-    //   ctx.moveTo(p.x,p.y);
-    //   for (var i = 1; i < locations.length; i++) {
-    //     p = map.locationPoint(locations[i]);
-    //     ctx.lineTo(p.x,p.y);
-    //   }
-    //   ctx.stroke();
-    // }
-  
-    // map.addCallback('drawn', redraw);
-    // map.addCallback('resized', function() {
-    //   canvas.width = map.dimensions.x;
-    //   canvas.height = map.dimensions.y;
-    //   redraw();
-    // });
-  
-    // redraw();
+   
   }
